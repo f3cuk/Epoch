@@ -65,9 +65,6 @@ if ((_characterID == dayz_combination) || (_ownerID == _playerUID)) then {
 
 		if(!isNull _obj && alive _obj) then {
 
-			PVDZE_log_lockUnlock = [player, _obj, false];
-			publicVariableServer "PVDZE_log_lockUnlock";
-
 			_obj setVariable["packing",1];
 			[1,1] call dayz_HungerThirst;
 			_weapons = 		_obj getVariable["WeaponCargo",[]];
@@ -126,6 +123,9 @@ if ((_characterID == dayz_combination) || (_ownerID == _playerUID)) then {
 					_countr = _countr + 1;
 				} count _objWpnTypes;
 			};
+			
+			PVDZE_log_lockUnlock = [player,_holder,false];
+			publicVariableServer "PVDZE_log_lockUnlock";
 	
 			cutText [format[(localize "str_epoch_player_125"),_text], "PLAIN DOWN"];
 		};

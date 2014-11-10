@@ -50,9 +50,6 @@ _pos = _obj getVariable["OEMPos",(getposATL _obj)];
 
 if(!isNull _obj) then {
 
-	PVDZE_log_lockUnlock = [player, _obj,true];
-	publicVariableServer "PVDZE_log_lockUnlock";
-
 	//place vault
 	_holder = createVehicle [_lockedClass,_pos,[], 0, "CAN_COLLIDE"];
 	_holder setdir _dir;
@@ -76,6 +73,9 @@ if(!isNull _obj) then {
 	_holder setVariable ["WeaponCargo", _weapons, true];
 	_holder setVariable ["MagazineCargo", _magazines, true];
 	_holder setVariable ["BackpackCargo", _backpacks, true];
+	
+	PVDZE_log_lockUnlock = [player,_holder,true];
+	publicVariableServer "PVDZE_log_lockUnlock";
 
 	cutText [format[(localize "str_epoch_player_117"),_text], "PLAIN DOWN"];
 };

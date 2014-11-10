@@ -217,7 +217,7 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 		 };
 
 		 _plotDistance = (DZE_PlotPole select 0);
-		_PlotsmarkersNear = count (nearestObjects [_cursorTarget, ["Land_coneLight"], _PlotDistance]);
+		_PlotsmarkersNear = count (nearestObjects [_cursorTarget, ["Sign_sphere100cm_EP1"], _PlotDistance]);
 
 		if (s_player_plot_boundary_on < 0) then {
 			If (_PlotsmarkersNear == 0 ) then{
